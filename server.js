@@ -3,7 +3,7 @@ const path = require("path");
 
 const app = express();
 const db = require("./db/db.json");
-const PORT = process.env.pot || 3000;
+const port = process.env.PORT || 3000;
 
 //Function for sending pages of the website
 function getReq(webDir, fileDir){
@@ -22,6 +22,6 @@ app.get('/api/notes', (req, res) => {
     res.json(db);
 });
 
-app.listen(PORT, ()=> {
+app.listen(port, ()=> {
   console.log("The server is running.")
 })
