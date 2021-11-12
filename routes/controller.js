@@ -19,7 +19,19 @@ router.post('/notes', (req, res) => {
     res.json(db);
   })
 
-
+router.delete("/notes/:id", (req, res) => {
+  let keepNotes = []
+  for(let i=0; i < db.length ; i++){
+    if (db[i].id != req.params.id){
+      keepNotes.push(db[i]);
+    }
+  }
+  db = keepNotes;
+  fs.writeFileSync("./db/db.json", JSON.stringify(db), function (err){
+    if(err) throw err;
+  });
+  res.json(db);
+})
 
 
 
