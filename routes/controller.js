@@ -20,7 +20,7 @@ router.post('/notes', (req, res) => {
   })
 
 router.delete("/notes/:id", (req, res) => {
-  let keepNotes = []
+  let keepNotes = [];
   for(let i=0; i < db.length ; i++){
     if (db[i].id != req.params.id){
       keepNotes.push(db[i]);

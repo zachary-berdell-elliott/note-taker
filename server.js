@@ -8,13 +8,12 @@ const view = require("./routes/view");
 const app = express();
 const db = require("./db/db.json");
 const port = process.env.PORT || 3000;
+
+//Use functions
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
-
 app.use("/api", controller)
 app.use("/", view)
-//Sends the saved notes
-
 
 //Creates server
 app.listen(port, ()=> {
